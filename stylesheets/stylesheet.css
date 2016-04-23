@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: #151515 url("../images/bkg.png") 0 0;
+  background: #000000 /*url("../images/bkg.png") 0 0*/;
   color: #eaeaea;
   font: 16px;
   line-height: 1.5;
@@ -12,9 +12,11 @@ body {
 
 .container {
   width: 90%;
-  max-width: 600px;
+  max-width: 1080px;
   margin: 0 auto;
 }
+
+
 
 section {
   display: block;
@@ -22,7 +24,7 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 20px;
+  margin: 0 0 5px 0;
 }
 
 li {
@@ -38,18 +40,24 @@ li {
 header {
   background: rgba(0, 0, 0, 0.1);
   width: 100%;
-  border-bottom: 1px dashed #b5e853;
+  border-bottom: 4px solid #ff0033;
   padding: 20px 0;
   margin: 0 0 40px 0;
 }
 
+
 header h1 {
-  font-size: 30px;
+  text-align: right;
+}
+
+
+header h2 {
+  font-size: 37px;
   line-height: 1.5;
-  margin: 0 0 0 -40px;
+  margin: 0 0 0 0/*-40px*/;
   font-weight: bold;
-  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: #b5e853;
+  font-family: "Gautami"/*Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace*/;
+  color: #ffffff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
                0 0 10px rgba(181, 232, 83, 0.1);
@@ -57,17 +65,136 @@ header h1 {
   -webkit-font-smoothing: antialiased;
 }
 
-header h1:before {
+#hitachi-logo{
+	width: 124.8px;
+	height: 47.2px;
+	margin: 0 -15px 0 0;
+}
+
+#github-logo{
+	width: 33px;
+	height: 32px;
+	margin: 0 0 -2px 0;
+}
+
+#github-sign{
+	width: 103.5px;
+	height: 29.0px;
+	margin: 0 0 -2px 0;
+}
+
+/*
+header h1:after {
   content: "./ ";
   font-size: 24px;
 }
+*/
 
-header h2 {
+header h3 {
   font-size: 18px;
   font-weight: 300;
   color: #666;
+  font-family: Helvetica, Arial, sans-serif;
+  /*font-weight: bold;*/
+  -webkit-font-smoothing: antialiased;
 }
 
+.table-outside {
+  width: 100%;
+  margin: 0 0 0 -5px;
+  /*border: 1px solid #ffffff;*/
+}
+
+.td-outside {
+  width: 33%;
+  height: 170px;
+  margin: 0 0 0 0;
+  padding: 4px 2px 4px 2px;
+  /*border: 1px solid #ffffff;*/
+ }
+
+.table-inside {
+  width: 100%;
+  height: 100%;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+    /*-webkit-border-radius:10px;
+  -moz-border-radius:10px;*/
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+}
+
+
+.td-inside-title {
+  font-size: 24px;
+  height: 34px;
+  vertical-align: bottom;
+  padding: 0px 0px;
+  border: 0px solid #ffffff;
+  border-bottom: 1px solid #ff0033;
+ }
+
+ 
+.td-inside-content {	
+  font-size: 16px;
+  vertical-align: top;
+  /*border: 1px solid #ffffff;*/
+ }
+ 
+ .link-cell{
+	width: 100%; 
+	height: 100%; 
+	display: block;
+	color: #ffffff;
+	text-decoration: none;
+ }
+ 
+ .link-cell:before {
+  content: "\00a0\00a0";
+  font-size: 12px;
+ }
+ 
+ .link-cell:hover{
+	background-color: #666;; 
+ }
+ 
+.table-bottom {
+  width: 100%;
+  margin: 0 0 0 -5px;
+  /*border: 1px solid #ffffff;*/
+}
+
+.td-bottom {
+  width: 33%;
+  height: 170px;
+  margin: 0 0 0 0;
+  padding: 4px 2px 4px 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  vertical-align: top;
+  /*border: 2px solid #ffffff;*/
+  /*border: 1px solid #ffffff;*/
+ }
+
+ .pagelinks{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	text-align: center;
+ }
+ 
+ 
+ .paragraphs{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	
+ }
+
+ 
+ 
+ 
+ 
+ 
+ 
 #downloads .btn {
   display: inline-block;
   text-align: center;
@@ -80,6 +207,7 @@ header h2 {
 #main_content {
   width: 100%;
   -webkit-font-smoothing: antialiased;
+  font-family: Helvetica, Arial, sans-serif;
 }
 section img {
   max-width: 100%
@@ -88,7 +216,7 @@ section img {
 h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: #b5e853;
+  color: #ffffff;
   letter-spacing: -0.03em;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
@@ -108,7 +236,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #main_content h4 {
-  font-size: 14px;
+  font-size: 25px;
+  font-family: Helvetica, Arial, sans-serif;
+  margin-top: -20px;
 }
 
 #main_content h5 {
@@ -163,10 +293,7 @@ pre {
   overflow-y: hidden;
 }
 
-table {
-  width: 100%;
-  margin: 0 0 20px 0;
-}
+
 
 th {
   text-align: left;
