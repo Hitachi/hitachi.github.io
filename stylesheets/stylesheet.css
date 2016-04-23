@@ -126,7 +126,7 @@ header h3 {
 
 
 .td-inside-title {
-  font-size: 24px;
+  font-size: 20px;
   height: 34px;
   vertical-align: bottom;
   padding: 0px 0px;
@@ -136,7 +136,7 @@ header h3 {
 
  
 .td-inside-content {	
-  font-size: 16px;
+  font-size: 14px;
   vertical-align: top;
   /*border: 1px solid #ffffff;*/
  }
