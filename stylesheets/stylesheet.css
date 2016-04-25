@@ -149,6 +149,7 @@ header h3 {
 	color: #000000;
 	display: block;
 	text-decoration: none;
+	text-shadow: none;
  }
  
  .link-cell:before {
