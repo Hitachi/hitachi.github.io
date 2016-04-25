@@ -24,7 +24,7 @@ section {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 5px 10px;
+  margin: 0 0 5px 8px;
 }
 
 li {
@@ -54,7 +54,7 @@ header h1 {
 header h2 {
   font-size: 37px;
   line-height: 1.5;
-  margin: 0 0 0 10px/*-40px*/;
+  margin: 0 0 0 8px/*-40px*/;
   font-weight: bold;
   font-family: "Gautami"/*Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace*/;
   color: #000000;
