@@ -128,7 +128,6 @@ header h3 {
 .td-inside-title {
   font-size: 20px;
   height: 34px;
-  color: #000000;
   vertical-align: bottom;
   padding: 0px 0px;
   border: 0px solid #ffffff;
@@ -145,7 +144,8 @@ header h3 {
  
  .link-cell{
 	width: 100%; 
-	height: 100%; 
+	height: 100%;
+	color: #000000;
 	display: block;
 	text-decoration: none;
  }
