@@ -128,6 +128,7 @@ header h3 {
 .td-inside-title {
   font-size: 20px;
   height: 34px;
+  color: #000000;
   vertical-align: bottom;
   padding: 0px 0px;
   border: 0px solid #ffffff;
@@ -138,6 +139,7 @@ header h3 {
 .td-inside-content {	
   font-size: 14px;
   vertical-align: top;
+  color: #000000;
   /*border: 1px solid #ffffff;*/
  }
  
@@ -145,7 +147,6 @@ header h3 {
 	width: 100%; 
 	height: 100%; 
 	display: block;
-	color: #000000;
 	text-decoration: none;
  }
  
