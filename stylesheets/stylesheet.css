@@ -67,20 +67,26 @@ header h2 {
 
 #hitachi-logo{
 	width: 124.8px;
-	height: 47.2px;
-	margin: 0 -15px 0 0;
+	height: 40.0px;
+	margin: 0 -20px 0 0;
+}
+
+#hitachi-sign{
+	width: 135.0px;
+	height: 29.0px;
+	margin: 0 1.7px -1px 0;
 }
 
 #github-logo{
-	width: 33px;
-	height: 32px;
-	margin: 0 0 -2px 0;
+	width: 28px;
+	height: 28px;
+	margin: 0 0 -1px 0;
 }
 
 #github-sign{
 	width: 103.5px;
 	height: 29.0px;
-	margin: 0 0 -2px 0;
+	margin: 0 0 -1px 2px;
 }
 
 /*
@@ -122,47 +128,73 @@ header h3 {
     /*-webkit-border-radius:10px;
   -moz-border-radius:10px;*/
   border-radius: 10px;
-  border: 2px solid #000000;
+  border: 0px solid #666;
+  box-shadow:0px 0px 10px;
+  color: #222;
+}
+
+.td-inside-title:before{
+  content: "\00a0\00a0";
+  font-size: 12px;
 }
 
 
 .td-inside-title {
   font-size: 20px;
-  height: 70px;
+  height: 36px;
   vertical-align: bottom;
   padding: 0px 0px;
   /*border: 0px solid #ffffff;*/
-  border-bottom: 1px solid #ff0033;
+  border-bottom: 2px solid #ff0033;
  }
 
  
 .td-inside-content {	
   font-size: 14px;
   vertical-align: top;
-  color: #000000;
+  /*color: #000000;*/
+  padding: 8px 15px;
   /*border: 1px solid #ffffff;*/
  }
  
+ 
  .link-cell{
-	width: 100%; 
-	height: 100%;
-	color: #000000;
-	display: block;
+	width: 100%;
+    height: 100%;
+	/*margin: 0 0 0 0;
+    padding: 0px;*/
 	text-decoration: none;
-	/*text-shadow: none;*/
+	color: #444;
+	display: block;
+	text-shadow: none;
+/*	width: 100%; 
+	height: 100%;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
+               0 0 10px rgba(181, 232, 83, 0.1);	
+	color: #000000;
+	display: block;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+               0 0 5px rgba(181, 232, 83, 0.1),
+               0 0 10px rgba(181, 232, 83, 0.1);*/
  }
  
+ /*
  .link-cell:before {
-  content: "\00a0\00a0";
+  content: "\00a0\00a0\00a0\00a0";
   font-size: 12px;
  }
+ */
  
- .link-cell:hover{
-	background-color: #666;; 
+.table-inside:hover {
+  color: #888;
  }
+ 
+ /*
+ .link-cell:hover{
+	color: #999; 
+ }
+ */
  
 .table-bottom {
   width: 100%;
@@ -174,12 +206,13 @@ header h3 {
   width: 33%;
   height: 170px;
   margin: 0 0 0 0;
-  padding: 4px 2px 4px 2px;
+  padding: 25px 25px 25px 25px;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 12px;
   vertical-align: top;
   color: #000000;
-  /*border: 2px solid #ffffff;*/
+  
+  /*border: 2px solid #000;
   /*border: 1px solid #ffffff;*/
  }
 
@@ -188,6 +221,12 @@ header h3 {
 	font-size: 12px;
 	text-align: center;
 	color: #000000;
+	text-shadow: none;
+ }
+ 
+ .link-page{
+	text-shadow: none;
+	color: #1E90FF;
  }
  
  
@@ -226,9 +265,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   color: #000000;
   letter-spacing: -0.03em;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
+  /*text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
-               0 0 10px rgba(181, 232, 83, 0.1);
+               0 0 10px rgba(181, 232, 83, 0.1);*/
 }
 
 #main_content h1 {
@@ -247,6 +286,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 25px;
   font-family: Helvetica, Arial, sans-serif;
   margin-top: -20px;
+  color: #222;
 }
 
 #main_content h5 {
