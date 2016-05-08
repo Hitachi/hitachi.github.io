@@ -24,297 +24,64 @@
 
     <div class="container">
       <section id="main_content">
-	    <h4>All Repos</h4>
-		
-		
-			<table  class="table-outside">
-				<tr>
-					<td class="td-outside">
-					 
-					  <a href="https://github.com/Hitachi/sandbox" class="link-cell" target="_blank">	
-						<table class="table-inside">	
+	    <h4>All Repos</h4>		
+			<!--<table  class="table-outside">-->
+			
+			<script type="text/javascript">
+				
+				var prjname = 1;
+				var prjdscrp = 2;
+				var prjurl = 3;
+				
+				var csvData = new Array();
+				var xhr = new XMLHttpRequest();
+				xhr.open("get", "projectinfo.csv", false);
+				xhr.send(null);
+				var LF = String.fromCharCode(10);
+				var lines = xhr.responseText.split(LF);
+				for (var i = 0; i < lines.length;++i) {
+					var cells = lines[i].split(",");
+					if( cells.length != 1 ) {
+						csvData.push(cells);
+					}
+				}					
+				
+				document.write('<table class=\"table-outside\">');
+				
+				for (var i = 1; i < lines.length;++i) {
+					if( i%3 == 1 ) {
+						document.write("<tr>");
+					}
+				
+					document.write('<td class=\"td-outside\">');
+					document.write("<a href=" + "\"" + csvData[i][prjurl]+ "\" " + "class=\"link-cell\" target=\"_blank\">");
+					document.write("<table class=\"table-inside\">");
+					document.write("<tr>");
+					document.write("<td class=\"td-inside-title\">");
+					document.write(csvData[i][prjname]);
+					document.write("</td>");
+					document.write("</tr>");
+					document.write("<tr>");
+					document.write("<td class=\"td-inside-content\">");
+					document.write(csvData[i][prjdscrp]);
+					document.write("</td>");
+					document.write("</tr>");
+					document.write("</table>");
+					document.write("</a>");
+					document.write("</td>");
 					
-							<tr>				
-								<td class="td-inside-title">
-									Sandbox									
-								</td>				
-							</tr>
-							<tr>
-								<td class="td-inside-content">
-									Write project description here. Write project description here.
-								</td>
-							</tr>								
-						</table>
-					   </a>
-					
-					</td>
-					<td class="td-outside">
-						<a href="https://github.com/Hitachi-Data-Systems/Freeboard-plugin-for-MongoDB" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Freeboard-plugin-for-MongoDB
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">A Freeboard plugin for MongoDB.This plugin enables Freeboard to retrieve latest data every specified interval from MongoDB via the RESTHeart a REST API server for MongoDB.</td>
-								</tr>					
-							</table>
-						</a>
-					</td>
-					<td class="td-outside" >
-						<a href="https://github.com/Hitachi-Data-Systems/anywhere-fss-sdk" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										anywhere-fss-sdk
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">HCP Anywhere File Sync and Share SDK</td>
-								</tr>						
-							</table>
-						</a>	
-					</td>					
-				</tr>
+					if( i%3 == 0 ) {
+						document.write("</tr>");
+					}
+					else if(i == lines.length-1) {
+						document.write("</tr>");
+					}
+				}
 				
-				
-				
-				
-				<tr>
-					<td class="td-outside" >
-					    <a href="https://github.com/Hitachi-Data-Systems/ivy" class="link-cell" target="_blank">
-							<table class="table-inside">						   
-								<tr>
-									<td class="td-inside-title">
-										ivy
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">ivy project</td>
-								</tr>							
-							</table>
-						</a>	
-					</td>
-					<td class="td-outside" >
-						<a href="https://github.com/Hitachi-Data-Systems/Point-In-Time-Backup-Scripting" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Point-In-Time-Backup-Scripting
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">A set of scripts to perform point-in-time snapshot backups with Hitachi Data Systems in-system replication and Microsoft SQL Server. Formerly known as SplitSecond.</td>
-								</tr>
-							</table>
-						</a>
-					</td>
-					<td class="td-outside">
-						<a href="https://github.com/Hitachi-Data-Systems/comet" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										comet
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Custom Object Metadata Enhancement Toolkit</td>
-								</tr>
-							</table>
-						</a>
-					</td>					
-				</tr>
-				
-				
-				
-				
-				<tr>
-					<td class="td-outside" >
-						<a href="https://github.com/Hitachi-Data-Systems/librsyncWrapper" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										librsyncWrapper
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">A thin Java JNI wrapper around the C librsync library, making it easy to access the librsync library from Java code</td>
-								</tr>							
-							</table>
-						</a>
-					</td>
-					<td class="td-outside" >
-						<a href="https://github.com/openstack/cinder/tree/master/cinder/volume/drivers/hitachi" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										OpenStack Hitachi Cinder Driver
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">OpenStack cinder driver for Hitachi Storage</td>
-								</tr>
-							</table>
-						</a>	
-					</td>
-					<td class="td-outside">
-						<a href="https://github.com/openstack/manila/tree/master/manila/share/drivers/hitachi" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										OpenStack Hitachi Manila Driver
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">OpenStack manila driver for Hitachi NAS</td>
-								</tr>
-							</table>
-						</a>
-					</td>					
-				</tr>
-				
-				
-<!--				
-				<tr>
-					<td class="td-outside" >
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>	
-					<td class="td-outside" >
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>
-					<td class="td-outside">
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>					
-				</tr>
-				
-				
-				<tr>
-					<td class="td-outside" >
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>
-					<td class="td-outside" >
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>
-					<td class="td-outside">
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>					
-				</tr>
-				
-				
-				
-				<tr>
-					<td class="td-outside" >
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>
-					<td class="td-outside" >
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>
-					<td class="td-outside">
-						<a href="" class="link-cell" target="_blank">
-							<table class="table-inside">
-								<tr>
-									<td class="td-inside-title">
-										Project
-									</td>
-								</tr>
-								<tr>
-									<td class="td-inside-content">Project Description</td>
-								</tr>
-							</table>
-						</a>
-					</td>					
-				</tr>
--->				
-			</table>
+				document.write('</table>');
+			</script>	
+			
+		<!--	</table> -->
 		
 		<br>
 		<br>
