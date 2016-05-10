@@ -47,9 +47,11 @@
 				}					
 				
 				document.write('<table class=\"table-outside\">');
+				var a = 1;
 				
-				for (var i = 1; i < lines.length;++i) {
-					if( i%3 == 1 ) {
+				for (var i = csvData.length-1; i>=1; i--) {
+				
+					if( a%3 == 1 ) {
 						document.write("<tr>");
 					}
 				
@@ -63,22 +65,28 @@
 					document.write("</tr>");
 					document.write("<tr>");
 					document.write("<td class=\"td-inside-content\">");
-					document.write(csvData[i][prjdscrp]);
+					var replaced = csvData[i][prjdscrp].replace(/;/g,"," );
+					document.write(replaced);
 					document.write("</td>");
 					document.write("</tr>");
 					document.write("</table>");
 					document.write("</a>");
 					document.write("</td>");
 					
-					if( i%3 == 0 ) {
+					if( a%3 == 0 ) {
 						document.write("</tr>");
 					}
-					else if(i == lines.length-1) {
+					else if(a == csvData.length-1) {
 						document.write("</tr>");
 					}
+					
+					a = a + 1;
 				}
 				
 				document.write('</table>');
+				
+				
+				
 			</script>	
 			
 		<!--	</table> -->
