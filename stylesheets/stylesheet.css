@@ -208,7 +208,7 @@ header h3 {
   margin: 0 0 0 0;
   padding: 25px 25px 25px 25px;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   vertical-align: top;
   color: #000000;
   
@@ -218,7 +218,7 @@ header h3 {
 
  .pagelinks{
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	text-align: center;
 	color: #000000;
 	text-shadow: none;
@@ -232,7 +232,7 @@ header h3 {
  
  .paragraphs{
 	font-family: Helvetica, Arial, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	
  }
 
