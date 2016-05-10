@@ -24,10 +24,12 @@
 
     <div class="container">
       <section id="main_content">
-	    <h4>All Repos</h4>		
-			<!--<table  class="table-outside">-->
-			
+	  
 			<script type="text/javascript">
+	  
+	    		<!--<table  class="table-outside">-->
+			
+				var pagenum = checkPagenum();
 				
 				var prjname = 1;
 				var prjdscrp = 2;
@@ -44,63 +46,127 @@
 					if( cells.length != 1 ) {
 						csvData.push(cells);
 					}
-				}					
+				}			
+
+				var reponum = csvData.length-1;
+				document.write('<h4>All Repos('+reponum+')</h4>');
 				
-				document.write('<table class=\"table-outside\">');
-				var a = 1;
+				var displaylimit = 45;														
 				
-				for (var i = csvData.length-1; i>=1; i--) {
+				tableLoad(csvData,displaylimit,pagenum);
 				
-					if( a%3 == 1 ) {
+				function tableLoad(csvData,displaylimit,pagenum){
+				
+					document.write('<table class=\"table-outside\">');
+				
+					var displaynum = csvData.length-1;
+				
+					if(csvData.length == pagenum*displaylimit+2){
+						displaynum = pagenum*displaylimit+1;
+					}
+					else if(csvData.length == pagenum*displaylimit+3){
+						displaynum = pagenum*displaylimit+2;
+					}
+					else if(csvData.length >= pagenum*displaylimit+4){
+						displaynum = pagenum*displaylimit;
+					}				
+				
+				
+					var a = 1;
+				
+					for (var i = displaynum; i >= (pagenum-1)*displaylimit+1; i--) {
+				
+						if( a%3 == 1 ) {
+							document.write("<tr>");
+						}
+				
+						document.write('<td class=\"td-outside\">');
+						document.write("<a href=" + "\"" + csvData[i][prjurl]+ "\" " + "class=\"link-cell\" target=\"_blank\">");
+						document.write("<table class=\"table-inside\">");
 						document.write("<tr>");
+						document.write("<td class=\"td-inside-title\">");
+						document.write(csvData[i][prjname]);
+						document.write("</td>");
+						document.write("</tr>");
+						document.write("<tr>");
+						document.write("<td class=\"td-inside-content\">");
+						var replaced = csvData[i][prjdscrp].replace(/;/g,"," );
+						document.write(replaced);
+						document.write("</td>");
+						document.write("</tr>");
+						document.write("</table>");
+						document.write("</a>");
+						document.write("</td>");
+					
+						if( a%3 == 0 ) {
+							document.write("</tr>");
+						}
+						else if(a == csvData.length-1) {
+							document.write("</tr>");
+						}
+					
+						a = a + 1;
 					}
 				
-					document.write('<td class=\"td-outside\">');
-					document.write("<a href=" + "\"" + csvData[i][prjurl]+ "\" " + "class=\"link-cell\" target=\"_blank\">");
-					document.write("<table class=\"table-inside\">");
-					document.write("<tr>");
-					document.write("<td class=\"td-inside-title\">");
-					document.write(csvData[i][prjname]);
-					document.write("</td>");
-					document.write("</tr>");
-					document.write("<tr>");
-					document.write("<td class=\"td-inside-content\">");
-					var replaced = csvData[i][prjdscrp].replace(/;/g,"," );
-					document.write(replaced);
-					document.write("</td>");
-					document.write("</tr>");
-					document.write("</table>");
-					document.write("</a>");
-					document.write("</td>");
-					
-					if( a%3 == 0 ) {
-						document.write("</tr>");
-					}
-					else if(a == csvData.length-1) {
-						document.write("</tr>");
-					}
-					
-					a = a + 1;
+					document.write('</table>');
 				}
 				
-				document.write('</table>');
+				function setCookie(c_name,value,expiredays){
+       
+					var exdate=new Date();
+					exdate.setDate(expiredays);    
+					var s="";
+					s+=c_name+"="+escape(value);
+					s+=(expiredays==null)?"":"; expires="+exdate;
+        
+					document.cookie=s;
+				}
 				
+				function getCookie(c_name){
+					var st="";
+					var ed="";
+					if (document.cookie.length>0){
+						st=document.cookie.indexOf(c_name + "=");
+						if (st!=-1){ 
+							st=st+c_name.length+1;
+							ed=document.cookie.indexOf(";",st);
+							if (ed==-1) ed=document.cookie.length;
+							return unescape(document.cookie.substring(st,ed));
+						} 
+					}
+					return "";
+				}
 				
+				function checkPagenum(){
+					var pagenumstr=getCookie("pagenum");
+					if (pagenumstr!=""){
+						var pagenum = parseInt(pagenumstr);
+						return pagenum;						
+					}
+					else{
+						return 1;
+					}
+				}
 				
-			</script>	
 			
 		<!--	</table> -->
 		
-		<br>
-		<br>
-			<p class="pagelinks">
-				1&nbsp;
-				<a href="index-2.html" class="link-page">2</a>&nbsp;
-				<a href="index-3.html" class="link-page">3</a>&nbsp;
-				<a href="index-4.html" class="link-page">4</a>&nbsp;
-				<a href="index-5.html" class="link-page">5</a>&nbsp;
-			</p>
-		<br>
+				document.write('<br>');
+				document.write('<br>');
+				document.write('<p class="pagelinks">');
+				document.write('<a href="" class="link-page">1</a>&nbsp;&nbsp;');
+				
+				for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
+				    var pagenum = i + 1;
+					var cookiepagename = "pagenum";
+					var numnum = "3";
+					document.write('<a class="link-page" onclick="setCookie(cookiepagename,numnum,1)">' + pagenum +'</a>&nbsp;&nbsp;');
+				}
+				document.write('</p>');
+				document.write('<br>');
+		
+		
+			</script>	
 			
 <!--
 		<section id="downloads">
