@@ -115,31 +115,28 @@
 					document.write('</table>');
 				}
 				
-				function setCookie(c_name,value,expiredays){
-       
-					var exdate=new Date();
-					exdate.setDate(expiredays);    
-					var s="";
-					s+=c_name+"="+escape(value);
-					s+=(expiredays==null)?"":"; expires="+exdate;
-        
-					document.cookie=s;
+				function setCookie(cname, cvalue, exdays) {
+    					var d = new Date();
+					d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    					var expires = "expires="+d.toUTCString();
+    					document.cookie = cname + "=" + cvalue + "; " + expires;
 				}
-				
-				function getCookie(c_name){
-					var st="";
-					var ed="";
-					if (document.cookie.length>0){
-						st=document.cookie.indexOf(c_name + "=");
-						if (st!=-1){ 
-							st=st+c_name.length+1;
-							ed=document.cookie.indexOf(";",st);
-							if (ed==-1) ed=document.cookie.length;
-							return unescape(document.cookie.substring(st,ed));
-						} 
-					}
-					return "";
+
+				function getCookie(cname) {
+    					var name = cname + "=";
+    					var ca = document.cookie.split(';');
+    					for(var i = 0; i < ca.length; i++) {
+        					var c = ca[i];
+        					while (c.charAt(0) == ' ') {
+            						c = c.substring(1);
+        					}
+        					if (c.indexOf(name) == 0) {
+            						return c.substring(name.length, c.length);
+        					}
+    					}
+	 				return "";
 				}
+
 				
 				function checkPagenum(){
 					var pagenumstr=getCookie("pagenum");
