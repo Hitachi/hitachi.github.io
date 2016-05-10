@@ -156,11 +156,11 @@
 				document.write('<br>');
 				document.write('<br>');
 				document.write('<p class="pagelinks">');
-				document.write('<a href="" class="link-page">1</a>&nbsp;&nbsp;');
+				var cookiepagename = "pagenum";
+				document.write('<a href="" class="link-page" onclick="setCookieReload(cookiepagename,1,1)">1</a>&nbsp;&nbsp;');
 				
 				for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
-				    var pagenum = i + 1;
-					var cookiepagename = "pagenum";
+				    	var pagenum = i + 1;
 					document.write('<a class="link-page" onclick="setCookieReload(cookiepagename,'+ pagenum +',1)">' + pagenum +'</a>&nbsp;&nbsp;');
 				}
 				document.write('</p>');
