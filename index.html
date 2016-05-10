@@ -31,10 +31,6 @@
 			
 				var pagenum = checkPagenum();
 				
-				var namew = "pagenum";
-				var pagest = 3;
-				setCookie(namew,pagest,1);
-				
 				var prjname = 1;
 				var prjdscrp = 2;
 				var prjurl = 3;
@@ -149,6 +145,11 @@
 					}
 				}
 				
+				function setCookie-reload(cname, cvalue, exdays){
+					setCookie(cname, cvalue, exdays);
+					location.reload();
+				}
+				
 			
 		<!--	</table> -->
 		
@@ -160,8 +161,7 @@
 				for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
 				    var pagenum = i + 1;
 					var cookiepagename = "pagenum";
-					var numnum = "3";
-					document.write('<a class="link-page" onclick="setCookie(cookiepagename,numnum,1)">' + pagenum +'</a>&nbsp;&nbsp;');
+					document.write('<a class="link-page" onclick="setCookie-reload(cookiepagename,'+ pagenum +',1)">' + pagenum +'</a>&nbsp;&nbsp;');
 				}
 				document.write('</p>');
 				document.write('<br>');
