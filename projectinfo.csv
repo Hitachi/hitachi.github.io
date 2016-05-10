@@ -7,4 +7,4 @@
 6,Comet,Comet is a Custom Object Metadata Enhancement Toolkit.,https://github.com/Hitachi-Data-Systems/comet,5/5/2016
 7,librsyncWrapper,A thin Java JNI wrapper around the C librsync library; making it easy to use the librsync library from Java code.,https://github.com/Hitachi-Data-Systems/librsyncWrapper,5/5/2016
 8,Hitachi OpenStack Cinder Driver,Hitachi OpenStack Cinder Driver.,https://github.com/openstack/cinder/tree/master/cinder/volume/drivers/hitachi,5/5/2016
-9,Hitachi OpenStack Manila Driver,Hitachi OpenStack Manila Driver.,https://github.com/openstack/manila/tree/master/manila/share/drivers/hitachi,5/5/2016
+9,Hitachi OpenStack Manila Driver,Hitachi; OpenStack Manila Driver.,https://github.com/openstack/manila/tree/master/manila/share/drivers/hitachi,5/5/2016
