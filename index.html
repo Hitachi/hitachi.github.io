@@ -145,7 +145,7 @@
 					}
 				}
 				
-				function setCookie-reload(cname, cvalue, exdays){
+				function setCookieReload(cname, cvalue, exdays){
 					setCookie(cname, cvalue, exdays);
 					location.reload();
 				}
@@ -161,7 +161,7 @@
 				for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
 				    var pagenum = i + 1;
 					var cookiepagename = "pagenum";
-					document.write('<a class="link-page" onclick="setCookie-reload(cookiepagename,'+ pagenum +',1)">' + pagenum +'</a>&nbsp;&nbsp;');
+					document.write('<a class="link-page" onclick="setCookieReload(cookiepagename,'+ pagenum +',1)">' + pagenum +'</a>&nbsp;&nbsp;');
 				}
 				document.write('</p>');
 				document.write('<br>');
