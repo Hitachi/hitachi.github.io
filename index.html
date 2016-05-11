@@ -205,7 +205,7 @@
 				
 					for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
 				    		var pagenum = i + 1;
-						document.write('<a href="" class="link-page" onclick="contentsLoad(csvfilename,searchstr,displaylimit,pagenum)">' + pagenum +'</a>&nbsp;&nbsp;');
+						document.write('<a href="" class="link-page" onclick="contentsLoad(csvfilename,searchstr,displaylimit,'+pagenum+')">' + pagenum +'</a>&nbsp;&nbsp;');
 					}
 					document.write('</p>');
 					document.write('<br>');
