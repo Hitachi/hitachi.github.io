@@ -29,18 +29,16 @@
 	  
 	    		<!--<table  class="table-outside">-->
 			
+				var pagenum = checkPagenum();
+				var searchstr = checkSearchstr();
+				var prjname = 1;
+				var prjdscrp = 2;
+				var prjurl = 3;
+				var displaylimit = 45;	
+				var csvfilename = "projectingo.csv";
 				contentsLoad("",1);
 
 				function contentsLoad(searchstr,pagenum){
-					
-					var pagenum = checkPagenum();
-					var searchstr = checkSearchstr();
-					var prjname = 1;
-					var prjdscrp = 2;
-					var prjurl = 3;
-					var displaylimit = 45;	
-					var csvfilename = "projectingo.csv";
-					
 					cvsToarray(csvfilename,searchstr);
 					displayReponum(csvData);
 					tableLoad(csvData,displaylimit,pagenum);
@@ -196,7 +194,6 @@
 				}
 				
 			
-		<!--	</table> -->
 				function displayPagelinks(){
 					document.write('<br>');
 					document.write('<br>');
