@@ -29,7 +29,7 @@
 	  
 	    		<!--<table  class="table-outside">-->
 			
-				var pagenum = checkPagenum();
+				//var pagenum = checkPagenum();
 				var searchstr = checkSearchstr();
 				var prjname = 1;
 				var prjdscrp = 2;
@@ -37,7 +37,7 @@
 				var displaylimit = 45;	
 				var csvfilename = "projectinfo.csv";
 				
-				contentsLoad(csvfilename,searchstr,displaylimit,pagenum);
+				contentsLoad(csvfilename,searchstr,displaylimit,"1");
 
 				function contentsLoad(csvfilename,searchstr,displaylimit,pagenum){
 					var csvData = cvsToarray(csvfilename,searchstr);
