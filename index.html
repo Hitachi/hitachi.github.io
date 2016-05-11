@@ -22,10 +22,44 @@
       </div>
     </header>
 
-    <div class="container" id="main_content">
+    	<div class="container" id="main_content">
       <!--<section id="main_content"> -->
 	  
-			<script type="text/javascript">
+				
+	</div>
+<!--
+		<section id="downloads">
+          <a href="https://github.com/Hitachi" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+-->
+	<div class="container" id="footer">
+		<table  class="table-bottom">
+				<tr>
+					<td class="td-bottom">
+						Contact Us
+						<p class="paragraphs">
+							<a href="https://community.hds.com/community/developer-network/open-source" class="link-page" target="_blank">Hitachi Open Source Community Space</a>
+						</p>
+					</td>
+					
+					<td class="td-bottom">
+						Follow Us
+						<p class="paragraphs">
+							<a href="https://twitter.com/HDScorp " class="link-page" target="_blank">Twitter</a><br>
+							<a href="https://www.facebook.com/HitachiDataSystems/" class="link-page" target="_blank">facebook</a><br>
+						</p>
+					</td>
+					
+					<td class="td-bottom">
+						Blogs
+					</td>
+				</tr>
+		</table>
+
+
+	</div>
+	
+	<script type="text/javascript">
 	  
 	    		<!--<table  class="table-outside">-->
 			
@@ -42,8 +76,8 @@
 				function contentsLoad(csvfilename,searchstr,displaylimit,pagenum){
 					var csvData = cvsToarray(csvfilename,searchstr);
 					displayReponum(csvData);
-					tableLoad(csvData,displaylimit,pagenum);
-					displayPagelinks(csvfilename,csvData,searchstr,displaylimit);
+					//tableLoad(csvData,displaylimit,pagenum);
+					//displayPagelinks(csvfilename,csvData,searchstr,displaylimit);
 				}
 				
 				
@@ -86,7 +120,7 @@
 
 				function displayReponum(csvData){
 					var reponum = csvData.length-1;
-					document.write('<h4>All Repos('+reponum+')</h4>');
+					document.getElementById("main_content").innerHTML='<h4>All Repos('+reponum+')</h4>';
 				}
 																	
 				
@@ -211,39 +245,7 @@
 					document.write('<br>');
 				}
 		
-			</script>	
-	</div>		
-<!--
-		<section id="downloads">
-          <a href="https://github.com/Hitachi" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
--->
-	<div class="container" id="footer">
-		<table  class="table-bottom">
-				<tr>
-					<td class="td-bottom">
-						Contact Us
-						<p class="paragraphs">
-							<a href="https://community.hds.com/community/developer-network/open-source" class="link-page" target="_blank">Hitachi Open Source Community Space</a>
-						</p>
-					</td>
-					
-					<td class="td-bottom">
-						Follow Us
-						<p class="paragraphs">
-							<a href="https://twitter.com/HDScorp " class="link-page" target="_blank">Twitter</a><br>
-							<a href="https://www.facebook.com/HitachiDataSystems/" class="link-page" target="_blank">facebook</a><br>
-						</p>
-					</td>
-					
-					<td class="td-bottom">
-						Blogs
-					</td>
-				</tr>
-		</table>
-
-
-	</div>
-	
+	</script>
+			
   </body>
 </html>
