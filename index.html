@@ -36,9 +36,10 @@
 				var prjurl = 3;
 				var displaylimit = 45;	
 				var csvfilename = "projectingo.csv";
-				contentsLoad("",1);
+				
+				contentsLoad(csvfilename,searchstr,displaylimit,pagenum);
 
-				function contentsLoad(searchstr,pagenum){
+				function contentsLoad(csvfilename,searchstr,displaylimit,pagenum){
 					cvsToarray(csvfilename,searchstr);
 					displayReponum(csvData);
 					tableLoad(csvData,displaylimit,pagenum);
