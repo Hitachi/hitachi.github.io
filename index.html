@@ -40,8 +40,8 @@
 				contentsLoad(csvfilename,searchstr,displaylimit,"1");
 
 				function contentsLoad(csvfilename,searchstr,displaylimit,pagenum){
-					//var csvData = cvsToarray(csvfilename,searchstr);
-					//displayReponum(csvData);
+					var csvData = cvsToarray(csvfilename,searchstr);
+					displayReponum(csvData);
 					//tableLoad(csvData,displaylimit,pagenum);
 					displayPagelinks(csvfilename,csvData,searchstr,displaylimit);
 				}
