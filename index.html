@@ -29,28 +29,54 @@
 	  
 	    		<!--<table  class="table-outside">-->
 			
-				var pagenum = checkPagenum();
-				var searchstr = checkSearchstr();
+				contentsLoad("",1);
+
+				function contentsLoad(searchstr,pagenum){
+					
+					var pagenum = checkPagenum();
+					var searchstr = checkSearchstr();
+					var prjname = 1;
+					var prjdscrp = 2;
+					var prjurl = 3;
+					var displaylimit = 45;	
+					var csvfilename = "projectingo.csv";
+					
+					cvsToarray(csvfilename,searchstr);
+					displayReponum(csvData);
+					tableLoad(csvData,displaylimit,pagenum);
+					displayPagelinks();
+				}
 				
-				var prjname = 1;
-				var prjdscrp = 2;
-				var prjurl = 3;
 				
-				var csvData = new Array();
-				var xhr = new XMLHttpRequest();
-				xhr.open("get", "projectinfo.csv", false);
-				xhr.send(null);
-				var LF = String.fromCharCode(10);
-				var lines = xhr.responseText.split(LF);
-				
-				if(searchstr == ""){
-					for (var i = 0; i < lines.length;++i) {
-						var cells = lines[i].split(",");
-						if( cells.length != 1 ) {
-							csvData.push(cells);
+				function cvsToarray(csvfilename,searchstr){
+					var csvData = new Array();
+					var xhr = new XMLHttpRequest();
+					xhr.open("get", csvfilename, false);
+					xhr.send(null);
+					var LF = String.fromCharCode(10);
+					var lines = xhr.responseText.split(LF);
+					
+					if(searchstr == ""){
+						for (var i = 0; i < lines.length;++i) {
+							var cells = lines[i].split(",");
+							if( cells.length != 1 ) {
+								csvData.push(cells);
+							}
 						}
 					}
-				}
+					else{
+						for (var i = 0; i < lines.length;++i) {
+							var cells = lines[i].split(",");
+							var regobj = new RegExp(searchstr,"gi");
+							if( cells[prjname].match(regobj)!= null ) {
+								csvData.push(cells);
+							}
+							else if( cells[prjdscrp].match(regobj)!= null ) {
+								csvData.push(cells);
+							}
+						}	
+					}
+				}	
 				
 				//else{
 				//	for (var i = lines.length-1; i >=0; i--) {
@@ -58,12 +84,11 @@
 				//		if(cells[prjname] == search)
 				//}
 
-				var reponum = csvData.length-1;
-				document.write('<h4>All Repos('+reponum+')</h4>');
-				
-				var displaylimit = 45;														
-				
-				tableLoad(csvData,displaylimit,pagenum);
+				function displayReponum(csvData){
+					var reponum = csvData.length-1;
+					document.write('<h4>All Repos('+reponum+')</h4>');
+				}
+																	
 				
 				function tableLoad(csvData,displaylimit,pagenum){
 				
@@ -172,20 +197,20 @@
 				
 			
 		<!--	</table> -->
-		
-				document.write('<br>');
-				document.write('<br>');
-				document.write('<p class="pagelinks">');
-				var cookiepagename = "pagenum";
-				document.write('<a href="" class="link-page" onclick="setCookieReload(cookiepagename,1,1)">1</a>&nbsp;&nbsp;');
+				function displayPagelinks(){
+					document.write('<br>');
+					document.write('<br>');
+					document.write('<p class="pagelinks">');
+					var cookiepagename = "pagenum";
+					document.write('<a href="" class="link-page" onclick="setCookieReload(cookiepagename,1,1)">1</a>&nbsp;&nbsp;');
 				
-				for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
-				    	var pagenum = i + 1;
-					document.write('<a href="" class="link-page" onclick="setCookieReload(cookiepagename,'+ pagenum +',1)">' + pagenum +'</a>&nbsp;&nbsp;');
+					for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
+				    		var pagenum = i + 1;
+						document.write('<a href="" class="link-page" onclick="setCookieReload(cookiepagename,'+ pagenum +',1)">' + pagenum +'</a>&nbsp;&nbsp;');
+					}
+					document.write('</p>');
+					document.write('<br>');
 				}
-				document.write('</p>');
-				document.write('<br>');
-		
 		
 			</script>	
 			
