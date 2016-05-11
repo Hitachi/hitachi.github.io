@@ -40,7 +40,7 @@
 				contentsLoad(csvfilename,searchstr,displaylimit,pagenum);
 
 				function contentsLoad(csvfilename,searchstr,displaylimit,pagenum){
-					cvsToarray(csvfilename,searchstr);
+					var csvData = cvsToarray(csvfilename,searchstr);
 					displayReponum(csvData);
 					tableLoad(csvData,displaylimit,pagenum);
 					displayPagelinks();
