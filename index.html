@@ -43,7 +43,7 @@
 					var csvData = cvsToarray(csvfilename,searchstr);
 					displayReponum(csvData);
 					tableLoad(csvData,displaylimit,pagenum);
-					displayPagelinks();
+					displayPagelinks(displaylimit);
 				}
 				
 				
@@ -196,7 +196,7 @@
 				}
 				
 			
-				function displayPagelinks(){
+				function displayPagelinks(displaylimit){
 					document.write('<br>');
 					document.write('<br>');
 					document.write('<p class="pagelinks">');
