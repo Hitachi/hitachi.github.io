@@ -43,7 +43,7 @@
 					var csvData = cvsToarray(csvfilename,searchstr);
 					displayReponum(csvData);
 					tableLoad(csvData,displaylimit,pagenum);
-					displayPagelinks(csvData,displaylimit);
+					displayPagelinks(csvfilename,csvData,searchstr,displaylimit);
 				}
 				
 				
@@ -196,7 +196,7 @@
 				}
 				
 			
-				function displayPagelinks(csvData,displaylimit){
+				function displayPagelinks(csvfilename,csvData,searchstr,displaylimit){
 					document.write('<br>');
 					document.write('<br>');
 					document.write('<p class="pagelinks">');
@@ -205,7 +205,7 @@
 				
 					for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
 				    		var pagenum = i + 1;
-						document.write('<a href="" class="link-page" onclick="setCookieReload(cookiepagename,'+ pagenum +',1)">' + pagenum +'</a>&nbsp;&nbsp;');
+						document.write('<a href="" class="link-page" onclick="contentsLoad(csvfilename,searchstr,displaylimit,pagenum)">' + pagenum +'</a>&nbsp;&nbsp;');
 					}
 					document.write('</p>');
 					document.write('<br>');
