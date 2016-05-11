@@ -22,8 +22,8 @@
       </div>
     </header>
 
-    <div class="container">
-      <section id="main_content">
+    <div class="container" id="main_content">
+      <!--<section id="main_content"> -->
 	  
 			<script type="text/javascript">
 	  
@@ -42,7 +42,7 @@
 				function contentsLoad(csvfilename,searchstr,displaylimit,pagenum){
 					var csvData = cvsToarray(csvfilename,searchstr);
 					displayReponum(csvData);
-					//tableLoad(csvData,displaylimit,pagenum);
+					tableLoad(csvData,displaylimit,pagenum);
 					displayPagelinks(csvfilename,csvData,searchstr,displaylimit);
 				}
 				
@@ -212,13 +212,13 @@
 				}
 		
 			</script>	
-			
+	</div>		
 <!--
 		<section id="downloads">
           <a href="https://github.com/Hitachi" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
 -->
-
+	<div class="container" id="footer">
 		<table  class="table-bottom">
 				<tr>
 					<td class="td-bottom">
@@ -243,10 +243,7 @@
 		</table>
 
 
-
-
-      </section>
-    </div>
+	</div>
 	
   </body>
 </html>
