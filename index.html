@@ -18,7 +18,7 @@
 		<h1><a href="http://www.hitachi.com/" target="_blank"><img src="images/hitachi-inspire-the-next-whitebkg-resized.png" id="hitachi-logo"></a></h1>
         <h2><a href="http://www.hitachi.com/" target="_blank"><img src="images/Hitachi_Logo.png" id="hitachi-sign"></a> <img src="images/blacktocat-whitebkg.png" id="github-logo"> <a href="https://github.com/" target="_blank"><img src="images/github-whitebkg.png" id="github-sign"></a></h2>
         <h3>Hitachi GitHub Repositories</h3>
-		
+		<h5><input type="text" name="example1" id="searchbox" placeholder="search repos" oninput="searchLoad()"/></h5>
       </div>
     </header>
 
@@ -26,7 +26,7 @@
       <!--<section id="main_content"> -->
 	  
 				
-	</div>
+		</div>
 <!--
 		<section id="downloads">
           <a href="https://github.com/Hitachi" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
@@ -64,20 +64,30 @@
 	    		<!--<table  class="table-outside">-->
 			
 				//var pagenum = checkPagenum();
-				var searchstr = checkSearchstr();
 				var prjname = 1;
 				var prjdscrp = 2;
 				var prjurl = 3;
 				var displaylimit = 45;	
 				var csvfilename = "projectinfo.csv";
 				
-				contentsLoad(csvfilename,searchstr,displaylimit,"1");
+				contentsLoad(csvfilename,displaylimit,1);
 
-				function contentsLoad(csvfilename,searchstr,displaylimit,pagenum){
+				function contentsLoad(csvfilename,displaylimit,pagenum){
+					var target = document.getElementById("searchbox");
+					var searchstr = target.value;
+					//document.getElementById("main_content").innerHTML = '<h4>'+searchstr+'</h4>';
 					var csvData = cvsToarray(csvfilename,searchstr);
-					displayReponum(csvData);
-					//tableLoad(csvData,displaylimit,pagenum);
-					//displayPagelinks(csvfilename,csvData,searchstr,displaylimit);
+					var divcontents = displayReponum(csvData);
+					divcontents += tableLoad(csvData,displaylimit,pagenum);
+					divcontents += displayPagelinks(csvfilename,csvData,displaylimit);
+					document.getElementById("main_content").innerHTML = divcontents;
+					var linkid = 'pagelink-' + pagenum;
+					document.getElementById(linkid).style.textDecoration = "none"; 
+				}
+				
+				
+				function searchLoad(){
+					contentsLoad(csvfilename,displaylimit,1);
 				}
 				
 				
@@ -98,13 +108,14 @@
 						}
 					}
 					else{
-						for (var i = 0; i < lines.length;++i) {
+						csvData.push(cells);
+						for (var i = 1; i < lines.length;++i) {
 							var cells = lines[i].split(",");
 							var regobj = new RegExp(searchstr,"gi");
-							if( cells[prjname].match(regobj)!= null ) {
+							if( cells.length != 1  && cells[prjname].match(regobj)!= null) {
 								csvData.push(cells);
 							}
-							else if( cells[prjdscrp].match(regobj)!= null ) {
+							else if( cells.length != 1 && cells[prjdscrp].match(regobj)!= null) {
 								csvData.push(cells);
 							}
 						}	
@@ -120,64 +131,69 @@
 
 				function displayReponum(csvData){
 					var reponum = csvData.length-1;
-					document.getElementById("main_content").innerHTML='<h4>All Repos('+reponum+')</h4>';
+					var divcontents = '<h4>All Repos('+reponum+')</h4>';
+					return divcontents
 				}
 																	
 				
 				function tableLoad(csvData,displaylimit,pagenum){
 				
-					document.write('<table class=\"table-outside\">');
+					var divcontents = "";
+					divcontents+='<table class=\"table-outside\">';
 				
-					var displaynum = csvData.length-1;
-				
-					if(csvData.length == pagenum*displaylimit+2){
-						displaynum = pagenum*displaylimit+1;
+					var displaystart = csvData.length-1-(pagenum-1)*displaylimit;
+							
+					if( csvData.length-1 <= pagenum*displaylimit ){
+						var displayend = 1;
 					}
-					else if(csvData.length == pagenum*displaylimit+3){
-						displaynum = pagenum*displaylimit+2;
+					else if ( csvData.length-1 > pagenum*displaylimit ){
+						var displayend = csvData.length-1 - pagenum*displaylimit +1;
 					}
-					else if(csvData.length >= pagenum*displaylimit+4){
-						displaynum = pagenum*displaylimit;
-					}				
 				
 				
 					var a = 1;
 				
-					for (var i = displaynum; i >= (pagenum-1)*displaylimit+1; i--) {
+					for (var i = displaystart; i >= displayend; i--) {
 				
 						if( a%3 == 1 ) {
-							document.write("<tr>");
+							divcontents+='<tr>';
 						}
 				
-						document.write('<td class=\"td-outside\">');
-						document.write("<a href=" + "\"" + csvData[i][prjurl]+ "\" " + "class=\"link-cell\" target=\"_blank\">");
-						document.write("<table class=\"table-inside\">");
-						document.write("<tr>");
-						document.write("<td class=\"td-inside-title\">");
-						document.write(csvData[i][prjname]);
-						document.write("</td>");
-						document.write("</tr>");
-						document.write("<tr>");
-						document.write("<td class=\"td-inside-content\">");
+						divcontents+='<td class=\"td-outside\">';
+						divcontents+="<a href=" + "\"" + csvData[i][prjurl]+ "\" " + "class=\"link-cell\" target=\"_blank\">";
+						divcontents+="<table class=\"table-inside\">";
+						divcontents+="<tr>";
+						divcontents+="<td class=\"td-inside-title\">";
+						divcontents+=csvData[i][prjname];
+						divcontents+="</td>";
+						divcontents+="</tr>";
+						divcontents+="<tr>";
+						divcontents+="<td class=\"td-inside-content\">";
 						var replaced = csvData[i][prjdscrp].replace(/;/g,"," );
-						document.write(replaced);
-						document.write("</td>");
-						document.write("</tr>");
-						document.write("</table>");
-						document.write("</a>");
-						document.write("</td>");
+						divcontents+=replaced;
+						divcontents+="</td>";
+						divcontents+="</tr>";
+						divcontents+="</table>";
+						divcontents+="</a>";
+						divcontents+="</td>";
+						
+						if( a == 2 && i==displayend){
+							divcontents+='<td class=\"td-outside\">';
+							divcontents+="</td>";
+						}
 					
 						if( a%3 == 0 ) {
-							document.write("</tr>");
+							divcontents+="</tr>";
 						}
-						else if(a == csvData.length-1) {
-							document.write("</tr>");
+						else if(i == displayend) {
+							divcontents+="</tr>";
 						}
 					
 						a = a + 1;
 					}
 				
-					document.write('</table>');
+					divcontents+='</table>';
+					return divcontents;
 				}
 				
 				function setCookie(cname, cvalue, exdays) {
@@ -230,19 +246,21 @@
 				}
 				
 			
-				function displayPagelinks(csvfilename,csvData,searchstr,displaylimit){
-					document.write('<br>');
-					document.write('<br>');
-					document.write('<p class="pagelinks">');
+				function displayPagelinks(csvfilename,csvData,displaylimit){
+					var divcontents = "";
+					divcontents+='<br>';
+					divcontents+='<br>';
+					divcontents+='<p class="pagelinks">';
 					var cookiepagename = "pagenum";
-					document.write('<a href="" class="link-page" onclick="setCookieReload(cookiepagename,1,1)">1</a>&nbsp;&nbsp;');
+					divcontents+='<a href="javascript:contentsLoad(csvfilename,displaylimit,1)" class="link-page" id="pagelink-1">1</a>&nbsp;&nbsp;';
 				
-					for (var i = 1; csvData.length-1 >= i*displaylimit+3; i++){
+					for (var i = 1; csvData.length-1 > i*displaylimit; i++){
 				    		var pagenum = i + 1;
-						document.write('<a href="" class="link-page" onclick="contentsLoad(csvfilename,searchstr,displaylimit,'+pagenum+')">' + pagenum +'</a>&nbsp;&nbsp;');
+						divcontents+='<a href="javascript:contentsLoad(csvfilename,displaylimit,'+pagenum+')" class="link-page" id="pagelink-'+pagenum+'">' + pagenum +'</a>&nbsp;&nbsp;';
 					}
-					document.write('</p>');
-					document.write('<br>');
+					divcontents+='</p>';
+					divcontents+='<br>';
+					return divcontents;
 				}
 		
 	</script>
