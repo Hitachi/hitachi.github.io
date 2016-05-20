@@ -79,7 +79,7 @@
 					var searchstr = target.value;
 					//document.getElementById("main_content").innerHTML = '<h4>'+searchstr+'</h4>';
 					var csvData = cvsToarray(csvfilename,searchstr);
-					csvData = sortArrayOldtoNew(csvData);
+					csvData = sortArrayOldFirst(csvData);
 					var divcontents = displayReponum(csvData);
 					divcontents += tableLoad(csvData,displaylimit,pagenum);
 					divcontents += displayPagelinks(csvfilename,csvData,displaylimit);
@@ -126,7 +126,7 @@
 					return csvData;
 				}	
 				
-				function sortArrayOldtoNew(csvData){
+				function sortArrayOldFirst(csvData){
 					for(int i=1;i<csvData.length-1;i++){
 						for(int j=1;j<cvsData.length-i;j++){
 							if(csvData[j][dateadded]<csvData[j+1][dateadded]){
@@ -140,7 +140,7 @@
 				}
 
 
-				function sortArrayNewtoOld(csvData){
+				function sortArrayNewFirst(csvData){
 					for(int i=1;i<csvData.length-1;i++){
 						for(int j=1;j<cvsData.length-i;j++){
 							if(csvData[j][dateadded]>csvData[j+1][dateadded]){
@@ -152,19 +152,7 @@
 					}
 					return csvData;
 				}
-				
-				
-				function sortArrayOldtoNew(csvData){
-					for(int i=1;i<csvData.length-1;i++){
-						for(int j=1;j<cvsData.length-i;j--){
-							if(csvData[j][dateadded]<csvData[j+1][dateadded]){
-	  							var t=csvData[j];
-	  							csvData[j]=csvData[j+1];
-	  							csvData[j+1]=t;
-							}
-						}
-					}	
-				}
+			
 				
 				//else{
 				//	for (var i = lines.length-1; i >=0; i--) {
