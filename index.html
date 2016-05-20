@@ -79,7 +79,7 @@
 					var searchstr = target.value;
 					//document.getElementById("main_content").innerHTML = '<h4>'+searchstr+'</h4>';
 					var csvData = cvsToarray(csvfilename,searchstr);
-					//csvData = sortArrayOldFirst(csvData);
+					csvData = sortArrayOldFirst(csvData);
 					var divcontents = displayReponum(csvData);
 					divcontents += tableLoad(csvData,displaylimit,pagenum);
 					divcontents += displayPagelinks(csvfilename,csvData,displaylimit);
@@ -163,7 +163,7 @@
 				function displayReponum(csvData){
 					var reponum = csvData.length-1;
 					var divcontents = '<h4>All Repos('+reponum+')</h4>';
-					return divcontents
+					return divcontents;
 				}
 																	
 				
