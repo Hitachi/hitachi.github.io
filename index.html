@@ -127,8 +127,8 @@
 				}	
 				
 				function sortArrayOldFirst(csvData){
-					for(int i=1;i<csvData.length-1;++i){
-						for(int j=1;j<cvsData.length-i;++j){
+					for(var i=1;i<csvData.length-1;++i){
+						for(var j=1;j<cvsData.length-i;++j){
 							if(csvData[j][dateadded]<csvData[j+1][dateadded]){
 	  							var t=csvData[j];
 	  							csvData[j]=csvData[j+1];
@@ -141,8 +141,8 @@
 
 
 				function sortArrayNewFirst(csvData){
-					for(int i=1;i<csvData.length-1;++i){
-						for(int j=1;j<cvsData.length-i;++j){
+					for(var i=1;i<csvData.length-1;++i){
+						for(var j=1;j<cvsData.length-i;++j){
 							if(csvData[j][dateadded]>csvData[j+1][dateadded]){
 	  							var t=csvData[j];
 	  							csvData[j]=csvData[j+1];
