@@ -130,15 +130,15 @@
 					for(var i=1;i<csvData.length-1;++i){
 						for(var j=1;j<cvsData.length-i;++j){
 							var datearray = csvData[j][dateadded].split("/");
-							var vYear = parseInt(datearray[0]);
-							var vMonth = parseInt(datearray[1]);
-							var vDay = parseInt(datearray[2]);
+							var vYear = parseInt(datearray[1]);
+							var vMonth = parseInt(datearray[2]);
+							var vDay = parseInt(datearray[3]);
 							var adate = new Date( vYear, vMonth, vDay );
 							
 							var datearray = csvData[j+1][dateadded].split("/");
-							var vYear = parseInt(datearray[0]);
-							var vMonth = parseInt(datearray[1]);
-							var vDay = parseInt(datearray[2]);
+							var vYear = parseInt(datearray[1]);
+							var vMonth = parseInt(datearray[2]);
+							var vDay = parseInt(datearray[3]);
 							var adate1 = new Date( vYear, vMonth, vDay );
 							
 							if(adate.getTime()<adate1.getTime()){
@@ -156,15 +156,15 @@
 					for(var i=1;i<csvData.length-1;++i){
 						for(var j=1;j<cvsData.length-i;++j){
 							var datearray = csvData[j][dateadded].split("/");
-							var vYear = parseInt(datearray[0]);
-							var vMonth = parseInt(datearray[1]);
-							var vDay = parseInt(datearray[2]);
+							var vYear = parseInt(datearray[1]);
+							var vMonth = parseInt(datearray[2]);
+							var vDay = parseInt(datearray[3]);
 							var adate = new Date( vYear, vMonth, vDay );
 							
 							var datearray = csvData[j+1][dateadded].split("/");
-							var vYear = parseInt(datearray[0]);
-							var vMonth = parseInt(datearray[1]);
-							var vDay = parseInt(datearray[2]);
+							var vYear = parseInt(datearray[1]);
+							var vMonth = parseInt(datearray[2]);
+							var vDay = parseInt(datearray[3]);
 							var adate1 = new Date( vYear, vMonth, vDay );
 							
 							if(adate.getTime()>adate1.getTime()){
