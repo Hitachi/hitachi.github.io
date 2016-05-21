@@ -127,15 +127,18 @@
 				}	
 				
 				function sortArrayOldFirst(csvData){
-					for(var i=1;i<csvData.length-1;++i){
-						for(var j=1;j<cvsData.length-i;++j){
-							if(csvData[j][dateadded]<csvData[j+1][dateadded]){
-	  							var t=csvData[j];
-	  							csvData[j]=csvData[j+1];
-	  							csvData[j+1]=t;
-							}
-						}
-					}
+								var t=csvData[1];
+	  							csvData[1]=csvData[2];
+	  							csvData[2]=t;
+				//	for(var i=1;i<csvData.length-1;++i){
+				//		for(var j=1;j<cvsData.length-i;++j){
+				//			if(csvData[j][dateadded]<csvData[j+1][dateadded]){
+	  			//				var t=csvData[j];
+	  			//				csvData[j]=csvData[j+1];
+	  			//				csvData[j+1]=t;
+				//			}
+				//		}
+				//	}
 					return csvData;
 				}
 
