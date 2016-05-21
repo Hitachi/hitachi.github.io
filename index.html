@@ -79,9 +79,8 @@
 					var searchstr = target.value;
 					//document.getElementById("main_content").innerHTML = '<h4>'+searchstr+'</h4>';
 					var csvData = cvsToarray(csvfilename,searchstr);
-					var temp = sortArrayOldFirst(csvData);
+					csvData = sortArrayOldFirst(csvData);
 					var divcontents = displayReponum(csvData);
-					divcontents += '<h4>'+temp+'</h4>';
 					divcontents += tableLoad(csvData,displaylimit,pagenum);
 					divcontents += displayPagelinks(csvfilename,csvData,displaylimit);
 					document.getElementById("main_content").innerHTML = divcontents;
@@ -129,14 +128,12 @@
 				
 				function sortArrayOldFirst(csvData){
 					for(var i=1;i<csvData.length-1;++i){
-						for(var j=1;j<cvsData.length-i;++j){
+						for(var j=1;j<csvData.length-i;++j){
 							var datearray = csvData[j][dateadded].split("/");
 							var vYear = parseInt(datearray[0]);
 							var vMonth = parseInt(datearray[1]);
 							var vDay = parseInt(datearray[2]);
 							var adate = new Date( vYear, vMonth, vDay );
-							
-							
 							
 							var datearray = csvData[j+1][dateadded].split("/");
 							var vYear = parseInt(datearray[0]);
@@ -144,21 +141,20 @@
 							var vDay = parseInt(datearray[2]);
 							var adate1 = new Date( vYear, vMonth, vDay );
 							
-						//	if(adate.getTime()<adate1.getTime()){
-	  					//		var t=csvData[j];
-	  					//		csvData[j]=csvData[j+1];
-	  					//		csvData[j+1]=t;
-						//	}
+							if(adate.getTime()<adate1.getTime()){
+	  							var t=csvData[j];
+	  							csvData[j]=csvData[j+1];
+	  							csvData[j+1]=t;
+							}
 						}
 					}
-					//return csvData;
-					return vYear;
+					return csvData;
 				}
 
 
 				function sortArrayNewFirst(csvData){
 					for(var i=1;i<csvData.length-1;++i){
-						for(var j=1;j<cvsData.length-i;++j){
+						for(var j=1;j<csvData.length-i;++j){
 							var datearray = csvData[j][dateadded].split("/");
 							var vYear = parseInt(datearray[0]);
 							var vMonth = parseInt(datearray[1]);
