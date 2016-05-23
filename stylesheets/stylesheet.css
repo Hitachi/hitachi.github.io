@@ -107,10 +107,7 @@ header h3 {
 
 .table-outside {
   width: 100%;
-  /*margin: 0 0 0 -5px;*/
   margin: 0 0 0 0;
-  
-  /*border: 1px solid #ffffff;*/
 }
 
 .td-outside {
