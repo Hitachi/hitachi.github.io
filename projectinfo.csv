@@ -8,4 +8,3 @@
 8,Hitachi OpenStack Cinder Driver,Hitachi storage volume driver for OpenStack Cinder.,https://github.com/openstack/cinder/tree/master/cinder/volume/drivers/hitachi,2016/5/5
 9,Hitachi OpenStack Manila Driver,HDS HNAS Driver for OpenStack Manila.,https://github.com/openstack/manila/tree/master/manila/share/drivers/hitachi,2016/5/5
 10, LUN Discovery, LUN Discovery Tool.,https://github.com/Hitachi-Data-Systems/LUN_discovery,2016/5/13
-10, BUN Discovery, LUN Discovery Tool.,https://github.com/Hitachi-Data-Systems/LUN_discovery,2016/5/14
