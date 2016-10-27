@@ -16,6 +16,7 @@ body {
   margin: 0 auto;
 }
 
+
 section {
   display: block;
   margin: 0 0 20px 0;
@@ -35,12 +36,12 @@ header {
   background: #ffffff /*rgba(0, 0, 0, 0.1)*/;
   width: 100%;
   border-bottom: 4px solid #ff0033;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   margin: 0 0 40px 0;
 }
 
 h1,h2,h3,h4,h5,h6 {
-  margin: 0 0 5px 12px;
+  margin: 0 0 0 12px;
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   color: #000000;
@@ -55,12 +56,14 @@ h1 {
 }
 
 h2 {
-  font-size: 37px;
+  font-size: 42px;
   line-height: 1.5;
-  margin: 0 0 0 12px/*-40px*/;
-  font-weight: bold;
-  font-family: "Gautami"/*Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace*/;
-  color: #000000;
+  margin: 0 0 -10px 12px/*-40px*/;
+  padding: 35px 0 0 0;
+  font-weight: 600;
+  font-family: "Helvetica"/*Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace*/;
+  color: #FFFFFF;
+  transform: scale(1,0.76);
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1),
                0 0 5px rgba(181, 232, 83, 0.1),
                0 0 10px rgba(181, 232, 83, 0.1);
@@ -68,11 +71,17 @@ h2 {
   -webkit-font-smoothing: antialiased;
 }
 
+.header_link{
+  transform: scale(1,0.73);
+  text-decoration: none;
+  color: #FFFFFF
+}
+
 h3 {
   font-size: 18px;
   margin: 0 12px 0 12px;
   font-weight: 300;
-  color: #666;
+  color: #ffffff;
   font-family: Helvetica, Arial, sans-serif;
   /*font-weight: bold;*/
   -webkit-font-smoothing: antialiased;
@@ -87,6 +96,10 @@ div.link {
   text-align: right;
 }
 
+#addrepo_link{
+  text-decoration: none;
+  color: #FFFFFF; 	
+}
 
 h4 {
   font-size: 25px;
@@ -99,6 +112,7 @@ h4 {
 h5{
 	margin: 0 12px 0 0;
 	text-align: right;
+	padding: 0 0 7px 0;
 	color: #999;
 } 
 
@@ -108,12 +122,12 @@ h5{
 /*images*/
 
 #hitachi-logo{
-	width: 124.8px;
-	height: 40.0px;
+	width: 93.6px;
+	height: 30.0px;
 	margin: 0 12px 0 0;
 }
 
-#hitachi-sign{
+#hitachi-sign-white{
 	width: 135.0px;
 	height: 29.0px;
 	margin: 0 1.7px -1px 0;
@@ -131,8 +145,20 @@ h5{
 	margin: 0 0 -1px 2px;
 }
 
+#globe_logo{
+	float: left; 
+	margin: 25px 35px 15px 30px;
+}
+	
+/*background*/
 
+#header_with_background{
+	background-image: url("../images/header_background.png"); 
+	
+}
 
+	
+	
 /*main_content*/
 
 #main_content {
