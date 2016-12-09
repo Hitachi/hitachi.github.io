@@ -9,3 +9,4 @@ id,project name,description,url,date added
 9,Hitachi OpenStack Manila Driver,HDS HNAS Driver for OpenStack Manila.,https://github.com/openstack/manila/tree/master/manila/share/drivers/hitachi,2014/9/19
 10, LUN Discovery, LUN Discovery Tool.,https://github.com/Hitachi-Data-Systems/LUN_discovery,2016/5/13
 11, Org Chart Builder, Tool to generate Org Chart PPTs from a source spreadsheet.,https://github.com/Hitachi-Data-Systems/org-chart-builder, 2016/5/26
+12, Pentaho Data Integration plugins for the Hitachi Computing Platform, https://github.com/mattcasters/pdi-hcp-plugin, 2016/10/19
