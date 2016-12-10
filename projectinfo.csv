@@ -10,3 +10,5 @@ id,project name,description,url,date added
 10, LUN Discovery, LUN Discovery Tool.,https://github.com/Hitachi-Data-Systems/LUN_discovery,2016/5/13
 11, Org Chart Builder, Tool to generate Org Chart PPTs from a source spreadsheet.,https://github.com/Hitachi-Data-Systems/org-chart-builder, 2016/5/26
 12, Pentaho - HCP Plugins, Pentaho Data Integration plugins for the Hitachi Computing Platform, https://github.com/mattcasters/pdi-hcp-plugin, 2016/10/19
+13, Python3 SDK for HCP, Python3 SDK for Hitachi Content Platform (HCP), https://github.com/Simont3/hcpsdk, 2016/12/6
+14, HCP Metadata Query Tool, Facilitates the Metadata Query Engine integrated in HCP to list object metadata for all or a subset of the data stored in HCP, https://gitlab.com/simont3/hcpmetadataquerytool, 2015/1/19
