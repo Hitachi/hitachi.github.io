@@ -12,3 +12,8 @@ id,project name,description,url,date added
 12, Pentaho - HCP Plugins, Pentaho Data Integration plugins for the Hitachi Computing Platform, https://github.com/mattcasters/pdi-hcp-plugin, 2016/10/19
 13, Python3 SDK for HCP, Python3 SDK for Hitachi Content Platform (HCP), https://github.com/Simont3/hcpsdk, 2016/12/6
 14, HCP Metadata Query Tool, Facilitates the Metadata Query Engine integrated in HCP to list object metadata for all or a subset of the data stored in HCP, https://gitlab.com/simont3/hcpmetadataquerytool, 2015/1/19
+15, HCP Tool (hcpt), Collection of functions that might be useful when working with Hitachi Content Platform, https://gitlab.com/simont3/hcptool, 2016/2/12
+16, HCP chargeback data collector, Collects chargeback reports from Hitachi Content Platform systems, https://gitlab.com/simont3/hcpcbc, 2016/1/10
+17, HCP access log collection utility,  Download the HCP access logs on a regular basis, https://gitlab.com/simont3/hcplogs, 2015/11/8
+18, HS3 Shell, Command shell to manually interact with Amazon S3 and compatibles, https://gitlab.com/simont3/hs3sh,2016/3/25
+19, FTP-style client for HCP Anywhere, FTP style CLI client that allows to access HCP Anywhere on devices where no GUI is available, https://gitlab.com/simont3/awftp, 2016/6/16
