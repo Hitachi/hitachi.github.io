@@ -20,3 +20,4 @@ id,project name,description,url,date added
 20, Open Data Migrator for HCP, Open Data Migrator for HCP is a utility for copying managing and deleting data and setting object metadata, https://github.com/Hitachi-Data-Systems/Open-DM, 2017/2/23
 21, HCP Upload Daemon, A daemon that automatically uploads files to HCP, https://gitlab.com/simont3/hcpupd , 2017/3/6
 22, VSP libStorage Plugin, Hitachi VSP storage driver for docker, https://github.com/Hitachi-Data-Systems/VSP-libStorage-Plugin, 2017/3/6
+23, Hitachi's OSS Initiatives, An index of Hitachi's Open Source Software Initiatives, http://www.hitachi.co.jp/products/it/oss/efforts/index.html, 2018/1/31
